@@ -1,9 +1,6 @@
 package com.thoughtworks.codepairing;
 
-import com.thoughtworks.codepairing.model.Customer;
-import com.thoughtworks.codepairing.model.Product;
-import com.thoughtworks.codepairing.model.ShoppingCart;
-import com.thoughtworks.codepairing.model.Order;
+import com.thoughtworks.codepairing.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +21,7 @@ public class SampleApp {
         shoppingCart.addProduct(product3);
         System.out.println(shoppingCart.toString());
 
-        Order order = shoppingCart.checkout();
+        Order order = (new Checkout(shoppingCart)).checkout();
         System.out.println(order.toString());
     }
 }

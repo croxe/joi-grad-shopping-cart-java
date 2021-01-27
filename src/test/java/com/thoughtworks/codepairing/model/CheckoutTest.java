@@ -8,7 +8,7 @@ import java.util.List;
 import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 
-public class ShoppingCartTest {
+public class CheckoutTest {
 
     public static final int PRICE = 100;
     public static final String PRODUCT = "Product";
@@ -24,7 +24,7 @@ public class ShoppingCartTest {
     public void shouldCalculatePriceWithNoDiscount() {
         List<Product> products = asList(new Product(PRICE, "", PRODUCT));
         ShoppingCart cart = new ShoppingCart(customer, products);
-        Order order = cart.checkout();
+        Order order = (new Checkout(cart)).checkout();
 
         assertEquals(100.0, order.getTotalPrice(), 0.0);
     }
@@ -33,7 +33,7 @@ public class ShoppingCartTest {
     public void shouldCalculateLoyaltyPointsWithNoDiscount() {
         List<Product> products = asList(new Product(PRICE, "", PRODUCT));
         ShoppingCart cart = new ShoppingCart(customer, products);
-        Order order = cart.checkout();
+        Order order = (new Checkout(cart)).checkout();
 
         assertEquals(20, order.getLoyaltyPoints());
     }
@@ -42,7 +42,7 @@ public class ShoppingCartTest {
     public void shouldCalculatePriceFor10PercentDiscount() {
         List<Product> products = asList(new Product(PRICE, "DIS_10_ABCD", PRODUCT));
         ShoppingCart cart = new ShoppingCart(customer, products);
-        Order order = cart.checkout();
+        Order order = (new Checkout(cart)).checkout();
 
         assertEquals(90.0, order.getTotalPrice(), 0.0);
     }
@@ -51,7 +51,7 @@ public class ShoppingCartTest {
     public void shouldCalculateLoyaltyPointsFor10PercentDiscount() {
         List<Product> products = asList(new Product(PRICE, "DIS_10_ABCD", PRODUCT));
         ShoppingCart cart = new ShoppingCart(customer, products);
-        Order order = cart.checkout();
+        Order order = (new Checkout(cart)).checkout();
 
         assertEquals(10, order.getLoyaltyPoints());
     }
@@ -60,7 +60,7 @@ public class ShoppingCartTest {
     public void shouldCalculatePriceFor15PercentDiscount() {
         List<Product> products = asList(new Product(PRICE, "DIS_15_ABCD", PRODUCT));
         ShoppingCart cart = new ShoppingCart(customer, products);
-        Order order = cart.checkout();
+        Order order = (new Checkout(cart)).checkout();
 
         assertEquals(85.0, order.getTotalPrice(), 0.0);
     }
@@ -69,7 +69,7 @@ public class ShoppingCartTest {
     public void shouldCalculateLoyaltyPointsFor15PercentDiscount() {
         List<Product> products = asList(new Product(PRICE, "DIS_15_ABCD", PRODUCT));
         ShoppingCart cart = new ShoppingCart(customer, products);
-        Order order = cart.checkout();
+        Order order = (new Checkout(cart)).checkout();
 
         assertEquals(6, order.getLoyaltyPoints());
     }
