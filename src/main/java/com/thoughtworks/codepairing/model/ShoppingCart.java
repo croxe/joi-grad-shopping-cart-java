@@ -16,10 +16,6 @@ public class ShoppingCart {
         products.add(product);
     }
 
-    public void testfunction(){
-
-    }
-
     // Redo
     public Order checkout() {
         double totalPrice = 0;
