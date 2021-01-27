@@ -6,6 +6,7 @@ public class Checkout implements Coupon, LoyaltyPoints{
     public Checkout(ShoppingCart shoppingCart){
         this.shoppingCart = shoppingCart;
     }
+
     public Order checkout() {
         double totalPrice = 0;
         int loyaltyPointsEarned = 0;

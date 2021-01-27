@@ -24,7 +24,6 @@ public class ShoppingCart {
         return products;
     }
 
-
     @Override
     public String toString() {
         return "Customer: " + customer.getName() + "\n" + "Bought:  \n" + products.stream().map(p -> "- " + p.getName()+ ", "+p.getPrice()).collect(Collectors.joining("\n"));
