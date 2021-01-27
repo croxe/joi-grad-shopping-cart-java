@@ -16,6 +16,7 @@ public class ShoppingCart {
         products.add(product);
     }
 
+    // Redo
     public Order checkout() {
         double totalPrice = 0;
 

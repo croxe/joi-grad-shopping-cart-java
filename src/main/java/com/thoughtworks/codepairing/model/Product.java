@@ -1,9 +1,9 @@
 package com.thoughtworks.codepairing.model;
 
 public class Product {
-    private final double price;
-    private final String productCode;
-    private final String name;
+    private final double price; // Questionable
+    private final String productCode; // Questionable
+    private final String name; // Questionable
 
     public Product(double price, String productCode, String name) {
         this.price = price;
